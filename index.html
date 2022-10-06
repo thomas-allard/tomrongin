@@ -5,8 +5,186 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOMRONGIN</title>
+	
+<SCRIPT Language="JavaScript">
+var aw = screen.availWidth;
+var ah = screen.availHeight;
+document.write(aw)
+document.write(ah)
+var centerX = aw/2 - 60;
+var centerY = ah/2 - 60;
+var posX = centerX;
+var posY = centerY;
+var direction = Math.random() * (9-1) + 1
+direction = Math.trunc(direction)
+var distance
+var step = 0
+var movement
+
+function init(){
+if(direction == 1){
+posX = posX + 70
+posY = posY + 70
+}
+else if(direction == 2){
+posY = posY + 100
+}
+else if(direction == 3){
+posX = posX - 70
+posY = posY + 70
+}
+else if(direction == 4){
+posX = posX - 100
+}
+else if(direction == 5){
+posX = posX - 70
+posY = posY - 70
+}
+else if(direction == 6){
+posY = posY - 100
+}
+else if(direction == 7){
+posX = posX + 70
+posY = posY - 70
+}
+else if(direction == 8){
+posX = posX + 100
+}
+
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+
+setTheInterval()
+}
+
+
+function setTheInterval(){
+movement = setInterval("getDirection();", 10)
+direction = Math.random() * (9-1) + 1
+direction = Math.trunc(direction)
+distance = Math.random() * (250 - 50) + 50
+distance = Math.trunc(distance)
+step = 0
+}
+
+
+function getDirection(){
+if (step != distance){
+if(direction == 1){
+posX = posX + 1
+posY = posY + 1
+step += 1
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 2){
+posY = posY + 1
+step += 1
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 3){
+posX = posX - 1
+posY = posY + 1
+step += 1
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 4){
+posX = posX - 1
+step += 1
+document.getElementById("pic").style.left = posX;
+
+}
+else if(direction == 5){
+posX = posX - 1
+posY = posY - 1
+step += 1
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 6){
+posY = posY - 1
+step += 1
+document.getElementById("pic").style.left = posX;
+
+}
+else if(direction == 7){
+posX = posX + 1
+posY = posY - 1
+step += 1
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 8){
+posX = posX + 1
+step += 1
+document.getElementById("pic").style.left = posX;
+}
+
+
+if((posX + 120 >= aw)||(posY + 120 >= ah) || (posX <= 0) || (posY <= 0)){
+if(direction == 1){
+posX = posX - 1
+posY = posY - 1
+step += 1
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 2){
+posY = posY - 1
+step += 1
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 3){
+posX = posX + 1
+posY = posY - 1
+step += 1
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 4){
+posX = posX + 1
+step += 1
+document.getElementById("pic").style.left = posX;
+
+}
+else if(direction == 5){
+posX = posX + 1
+posY = posY + 1
+step += 1
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 6){
+posY = posY + 1
+step += 1
+document.getElementById("pic").style.left = posX;
+
+}
+else if(direction == 7){
+posX = posX - 1
+posY = posY + 1
+step += 1
+document.getElementById("pic").style.left = posX;
+document.getElementById("pic").style.top = posY;
+}
+else if(direction == 8){
+posX = posX - 1
+step += 1
+document.getElementById("pic").style.left = posX;
+}
+}
+
+}
+
+else {
+clearInterval(movement);
+setTheInterval()} 
+}
+</script>
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
 </head>
-<body>
+<body onLoad = "init()">
     <h1>Welcome to the best website in the world </h1>
 	
 	
@@ -37,6 +215,11 @@
 		<img src="pics/explosion_rats_baby!.jpg" alt="explosion baby rats" style="width:500px">
 		
 	<h2> But don't worry, these are good liddol guyz </h2>
+	
+<FORM name = "form1">
+<h1> Get Ready 2 FUCKING PARTY </h1>
+<img src="pics/judy_loaf.jpg" id="pic" style="position: absolute;"> 
+</form>
 	
 </body>
 </html>
